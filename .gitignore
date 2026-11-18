@@ -1,68 +1,135 @@
-# Prerequisites
-*.d
+#include <iostream>
+using namespace std;
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+int main (){
+    int choice1, back = 0, menu = 1, star = 6, answer = 0, row = 5, column = 4, choice2 = 0;
+    while (menu == 1){
+        cout <<"==================\n";
+        cout <<"    STAR ARENA  \n";
+        cout <<"==================\n";
+        cout <<"1. Start Game\n";
+        cout <<"2. Instructions\n";
+        cout <<"3. Exit Game\n";
+        cout <<"\nEnter choice- ";
+        cin >> choice1;
 
-# Precompiled Headers
-*.gch
-*.pch
+        switch (choice1){
+            case 1:
+            cout <<"=======LEVEL 1=======\n";
+            for (int i =1; i<= 3; i++){
+                for (int j = 1; j<= i; j++){
+                    cout <<"* ";
+                }
+                cout << endl;
+            }
+            cout <<"How many * are there? ";
+            cin >> answer;
+            if (star != answer){
+                cout <<"You failed this level\n";
+                back = 1;
+                while (back != 0){
+                    cout <<"\nPress 0 to return to game menu-";
+                    cin >> back;
+                }
+                break;
+            }   
+            else if (star == answer){
+                cout <<" Level 1 Completed!\n";
+                cout <<"=======LEVEL 2=======\n";
+                for (int i = 1; i<= 5; i++){
+                    for (int j = 1; j <= 3; j++){
+                        cout <<"*" <<" ";
+                    }
+                    cout << endl;
+                }
+                cout <<"How many rows are there? ";
+                cin >> answer;
+                if (row != answer){
+                    cout <<"You failed this level\n";
+                    back = 1;
+                    while (back != 0){
+                        cout <<"\nPress 0 to return to game menu-";
+                        cin >> back;
+                    }
+                    break;               
+                }
+                else if (row == answer){
+                    cout <<"You passed this level.\n";
+                    cout <<"Level 2 Completed!\n";
+                    cout <<"=======Level 3=======\n";
+                    for (int i = 1; i<= 4; i++){
+                        for (int j = 1; j<= 4; j++){
+                            cout <<"* ";
+                        }
+                        cout << endl;
+                    }
+                    cout <<"How many coloums are there?";
+                    cin >> answer;
+                    if (answer == column){
+                        cout <<"===================================\n";
+                        cout <<"        CONGRATULATIONS!\n";
+                        cout <<"     You completed STAR ARENA!\n";
+                        cout <<"===================================\n";
+                        choice2 = 0;
+                        while (choice2 > 2 || choice2 < 1){ 
+                            cout <<"\n 1. Return to main menu\n";
+                            cout <<" 2. Exit game\n";
+                            cout <<"Enter your choice- ";
+                            cin >> choice2;
+                        }
+                        if (choice2 == 1){
+                            break;
+                        }
+                        else if (choice2 == 2){
+                            menu = 0;
+                            break;
+                        }
+                    }
+                    else {
+                        cout <<"You failed this level\n";
+                        back = 1;
+                        while (back != 0){
+                            cout <<"\nPress 0 to return to game menu-";
+                            cin >> back;
+                        }
+                        break;             
+                    }
+                }
+            }
+            back = 1;
+            while (back != 0){
+                cout <<"\nPress 0 to return to game menu-";
+                cin >> back;
+            }
+            break;
 
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# Build directories
-[Bb]uild/
-[Bb]uild-*/
-cmake-build-*/
-
-# CMake generated files
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-install_manifest.txt
-compile_commands.json
-
-# Temporary files
-*.tmp
-*.log
-*.bak
-*.swp
-
-# vcpkg
-vcpkg_installed/
-
-# debug information files
-*.dwo
-
-# test output & cache
-Testing/
-.cache/
+            case 2:
+            cout <<"===============INSTRUCTIONS===============\n";
+            cout <<"Complete all three levels.\n";
+            cout <<"Study each star patteren carefully.\n";
+            cout <<"Enter the correct number of stars.\n";
+            cout <<"Complete all levels to win!\n";
+            cout <<"==========================================\n";
+            back = 1;
+            while (back != 0){
+                cout <<"\nPress 0 to return to game menu-";
+                cin >> back;
+            }
+            break;
+            
+            case 3:
+            menu = 0;
+            break;
+            default:
+            cout <<"INVALID CHOICE\n";
+            back = 1;
+            while (back != 0){
+                cout <<"Press 0 to return-";
+                cin >> back;
+            }
+            break;
+        }
+    }
+    cout <<"\nThanks for playing STAR ARENA!\n";  
+    cout <<"Game Ended!";
+}
