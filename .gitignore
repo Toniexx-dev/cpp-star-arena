@@ -132,4 +132,5 @@ int main (){
     }
     cout <<"\nThanks for playing STAR ARENA!\n";  
     cout <<"Game Ended!";
+
 }
